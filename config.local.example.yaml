@@ -1,0 +1,15 @@
+# Copy to config.local.yaml (gitignored) and fill in. Deep-merged over config.yaml.
+
+secrets:
+  JELLYFIN_API_KEY: ""   # Jellyfin → Dashboard → API Keys
+  STASH_API_KEY: ""      # Stash → Settings → Security → API Key (omit if Stash has no login)
+
+endpoints:               # merged by id: only the fields you list are overridden
+  - id: jellyfin-media
+    itemId: "0123456789abcdef0123456789abcdef"
+  - id: stash-media
+    sceneId: 42
+  # Running on the Mac mini instead of the Pi? Point the NAS check at the macOS mount:
+  # - id: nas
+  #   path: /Volumes/Main/.healthcheck
+  #   mountPoint: /Volumes/Main

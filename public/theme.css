@@ -1,0 +1,43 @@
+/* All visual tokens live here. Restyle by editing this file only. */
+:root {
+  --font: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --radius: 8px;
+  --gap: 16px;
+
+  --bg: #f6f6f4;
+  --surface: #fcfcfb;
+  --border: #e2e2de;
+  --ink: #1d1d1b;
+  --ink-2: #55554f;
+  --ink-3: #8a8a82;
+  --accent: #2f6fd6;
+
+  /* Status (reserved for state; always paired with icon + label) */
+  --good: #0ca30c;
+  --warning: #fab219;
+  --critical: #d03b3b;
+  --spark-up: #b9b9b1;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #121211;
+    --surface: #1a1a19;
+    --border: #2e2e2c;
+    --ink: #ececea;
+    --ink-2: #b0b0aa;
+    --ink-3: #7c7c76;
+    --accent: #6b9cf0;
+    --spark-up: #55554f;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #121211;
+  --surface: #1a1a19;
+  --border: #2e2e2c;
+  --ink: #ececea;
+  --ink-2: #b0b0aa;
+  --ink-3: #7c7c76;
+  --accent: #6b9cf0;
+  --spark-up: #55554f;
+}

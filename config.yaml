@@ -1,0 +1,56 @@
+# Committed config — NO SECRETS here. Secrets go in config.local.yaml (`secrets:`) or .env.
+# config.local.yaml is deep-merged over this file; `endpoints` merge by `id`, so you can override
+# a single field of one endpoint (see config.local.example.yaml).
+
+server:
+  host: lan            # "lan" = first private IPv4 on this machine; or an IP, or an interface name (eth0, wlan0, en0)
+  port: 4400
+workspaceUrl: http://srxserver:4401   # header link to the command-center app (optional)
+checkIntervalSeconds: 60
+historySize: 60                       # results kept per endpoint (sparkline length)
+defaultTimeoutMs: 10000
+dbPath: data/health.db
+
+endpoints:
+  - id: srxserver
+    name: srxserver (command-center)
+    type: http
+    url: http://srxserver:4401/api/ping
+    timeoutMs: 5000
+
+  - id: jellyfin
+    name: Jellyfin
+    type: http
+    url: http://srxserver:8096/health
+    bodyContains: Healthy
+    degradedLatencyMs: 2000
+
+  - id: jellyfin-media
+    name: Jellyfin playback
+    type: jellyfin-media
+    baseUrl: http://srxserver:8096
+    itemId: CHANGE_ME                  # set in config.local.yaml
+    apiKeySecret: JELLYFIN_API_KEY
+
+  - id: stash
+    name: Stash
+    type: http
+    url: http://srxserver:9999/healthz
+    degradedLatencyMs: 2000
+
+  - id: stash-media
+    name: Stash playback
+    type: stash-media
+    baseUrl: http://srxserver:9999
+    sceneId: CHANGE_ME                 # set in config.local.yaml
+    apiKeySecret: STASH_API_KEY
+
+  - id: nas
+    name: Synology NAS (SMB, 192.168.1.235)
+    type: file-read
+    # A small file on the share, mounted on this machine. `mountPoint` must be a real mount;
+    # if the share is unmounted the check reports "share not mounted" instead of reading the
+    # empty directory. (On macOS, /Volumes/<share> paths infer mountPoint automatically.)
+    path: /mnt/nas-main/.healthcheck
+    mountPoint: /mnt/nas-main
+    timeoutMs: 15000

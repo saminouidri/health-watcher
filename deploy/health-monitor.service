@@ -1,0 +1,19 @@
+# systemd unit for the Raspberry Pi. Install: see README "Run as a service".
+[Unit]
+Description=Homelab health monitor
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+User=pi
+WorkingDirectory=/home/pi/health-monitor
+ExecStart=/usr/bin/node --disable-warning=ExperimentalWarning src/index.ts
+Environment=NODE_ENV=production
+Restart=always
+RestartSec=10
+# Pi 3 has 1 GB RAM; cap the heap so a leak can't take the box down.
+Environment=NODE_OPTIONS=--max-old-space-size=128
+
+[Install]
+WantedBy=multi-user.target
