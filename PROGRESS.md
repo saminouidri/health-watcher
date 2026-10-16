@@ -23,10 +23,12 @@ Split out of `command-center` on 2026-10-16 at the user's request. Health checks
 - **Jellyfin 10.11.8:** `/Videos/{itemId}/stream` with `static`, and the security scheme (`Authorization` header), from the live server's `/api-docs/openapi.json`.
 - **Stash:** the `/scene/{id}/stream` route and the `ApiKey` header (or `apikey` query param), from stash's GitHub source (develop branch). srxserver's Stash has login enabled (`/` → 302 `/login`), so an API key is required.
 - **Live run on srxserver (2026-10-16):** Jellyfin `/health` and Stash `/healthz` were up. `/Volumes/Main` was detected as a real mount.
+- **Media checks live (2026-10-17):** with real API keys, `jellyfin-media` (movie "The Taking of Pelham 1 2 3") was up in 155 ms and `stash-media` (scene 1) was up in 54 ms, each reading the first chunk of the actual file.
 
 ## Open items for the user
 
-- Set `JELLYFIN_API_KEY`, `STASH_API_KEY`, `itemId`, and `sceneId` in `config.local.yaml`. The media checks have not been run against the real servers yet because no keys are configured.
+- Keys and ids are set in srxserver's (gitignored) `config.local.yaml`. Copy that file to the Pi when installing (`scp config.local.yaml pi@<pi>:health-monitor/`); it's not in git.
+- On srxserver, the name `srxserver` resolves to its Tailscale address (100.x), but command-center binds only to the LAN address. If the Pi joins Tailscale, point the `srxserver` check at `http://192.168.0.181:4401/api/ping` instead.
 - Create a `.healthcheck` file on the NAS share and mount the share on the Pi (README has an fstab line).
 - The Pi itself hasn't been set up. The unit file assumes user `pi` and `/home/pi/health-monitor`.
 
