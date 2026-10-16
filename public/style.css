@@ -5,9 +5,11 @@ button:hover { border-color: var(--ink-3); }
 button:disabled { opacity: .6; cursor: progress; }
 a { color: var(--accent); }
 
-header { display: flex; align-items: center; gap: 12px; padding: 12px var(--gap); border-bottom: 1px solid var(--border); background: var(--surface); position: sticky; top: 0; z-index: 2; }
+header { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; padding: 12px var(--gap); border-bottom: 1px solid var(--border); background: var(--surface); position: sticky; top: 0; z-index: 2; }
 header h1 { font-size: 16px; margin: 0; }
-header .summary { color: var(--ink-2); }
+header .summary { color: var(--ink-2); order: 9; flex-basis: 100%; font-size: 13px; }
+@media (min-width: 640px) { header .summary { order: 0; flex-basis: auto; font-size: inherit; } }
+header a, header button { white-space: nowrap; }
 header .spacer { flex: 1; }
 
 main { padding: var(--gap); }

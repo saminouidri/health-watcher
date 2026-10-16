@@ -18,7 +18,8 @@ export class Scheduler {
   }
 
   start() {
-    for (const ep of this.endpoints) {
+    // Misconfigured endpoints are shown with their config error and never run.
+    for (const ep of this.endpoints.filter((e) => !e.configError)) {
       void this.check(ep.id);
       this.timers.push(setInterval(() => void this.check(ep.id), ep.intervalMs));
     }
