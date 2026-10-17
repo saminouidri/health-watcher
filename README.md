@@ -29,7 +29,7 @@ Open `http://<pi-ip>:4400`.
 
 ### On the Raspberry Pi 3
 
-Use **Raspberry Pi OS Lite (64-bit)**. Node publishes arm64 builds, and a 64-bit OS avoids 32-bit ARM support gaps. Install Node 22 or 24 LTS from NodeSource or the official tarball, then clone this repo to `/home/pi/health-monitor`.
+Use **Raspberry Pi OS Lite (64-bit)**. Node publishes arm64 builds, and a 64-bit OS avoids 32-bit ARM support gaps. Install Node 22 or 24 LTS from NodeSource or the official tarball, then clone this repo to `/home/pi/health-watcher` (`git clone https://github.com/saminouidri/health-watcher.git`).
 
 Mount the NAS share for the `file-read` check, for example in `/etc/fstab`:
 

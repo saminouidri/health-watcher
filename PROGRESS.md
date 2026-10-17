@@ -27,10 +27,10 @@ Split out of `command-center` on 2026-10-16 at the user's request. Health checks
 
 ## Open items for the user
 
-- Keys and ids are set in srxserver's (gitignored) `config.local.yaml`. Copy that file to the Pi when installing (`scp config.local.yaml pi@<pi>:health-monitor/`); it's not in git.
+- Keys and ids are set in srxserver's (gitignored) `config.local.yaml`. Copy that file to the Pi when installing (`scp config.local.yaml pi@<pi>:health-watcher/`); it's not in git.
 - On srxserver, the name `srxserver` resolves to its Tailscale address (100.x), but command-center binds only to the LAN address. If the Pi joins Tailscale, point the `srxserver` check at `http://192.168.0.181:4401/api/ping` instead.
 - Create a `.healthcheck` file on the NAS share and mount the share on the Pi (README has an fstab line).
-- The Pi itself hasn't been set up. The unit file assumes user `pi` and `/home/pi/health-monitor`.
+- The Pi itself hasn't been set up. The unit file assumes user `pi` and `/home/pi/health-watcher`.
 
 ## Milestones
 

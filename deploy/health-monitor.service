@@ -7,7 +7,7 @@ After=network-online.target
 [Service]
 Type=simple
 User=pi
-WorkingDirectory=/home/pi/health-monitor
+WorkingDirectory=/home/pi/health-watcher
 ExecStart=/usr/bin/node --disable-warning=ExperimentalWarning src/index.ts
 Environment=NODE_ENV=production
 Restart=always
