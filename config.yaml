@@ -12,12 +12,6 @@ defaultTimeoutMs: 10000
 dbPath: data/health.db
 
 endpoints:
-  - id: srxserver
-    name: srxserver (command-center)
-    type: http
-    url: http://srxserver:4401/api/ping
-    timeoutMs: 5000
-
   - id: jellyfin
     name: Jellyfin
     type: http
@@ -46,11 +40,7 @@ endpoints:
     apiKeySecret: STASH_API_KEY
 
   - id: nas
-    name: Synology NAS (SMB, 192.168.1.235)
-    type: file-read
-    # A small file on the share, mounted on this machine. `mountPoint` must be a real mount;
-    # if the share is unmounted the check reports "share not mounted" instead of reading the
-    # empty directory. (On macOS, /Volumes/<share> paths infer mountPoint automatically.)
-    path: /mnt/nas-main/.healthcheck
-    mountPoint: /mnt/nas-main
+    name: Synology NAS (DSM, 192.168.1.235)
+    type: http
+    url: http://192.168.1.235:5000/
     timeoutMs: 15000
