@@ -5,7 +5,7 @@
 server:
   host: lan            # "lan" = first private IPv4 on this machine; or an IP, or an interface name (eth0, wlan0, en0)
   port: 4400
-workspaceUrl: http://srxserver:4401   # header link to the command-center app (optional)
+workspaceUrl: http://srxserver/comcenter/   # header link to the command-center app (optional)
 checkIntervalSeconds: 60
 historySize: 60                       # results kept per endpoint (sparkline length)
 defaultTimeoutMs: 10000

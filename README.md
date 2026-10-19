@@ -53,7 +53,7 @@ Don't expose this port outside your LAN.
 
 ```yaml
 server: { host: lan, port: 4400 }
-workspaceUrl: http://srxserver:4401   # header link (optional)
+workspaceUrl: http://srxserver/comcenter/   # header link (optional)
 checkIntervalSeconds: 60              # default for every endpoint
 historySize: 60                       # results kept per endpoint
 defaultTimeoutMs: 10000
