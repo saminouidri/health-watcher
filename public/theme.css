@@ -1,43 +1,77 @@
-/* All visual tokens live here. Restyle by editing this file only. */
+/* All visual tokens live here. Frutiger Aero: frosted glass, glossy aqua, sky and leaf tones. */
 :root {
-  --font: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font: "Segoe UI", "Frutiger", "Frutiger Linotype", "Myriad Pro", system-ui, -apple-system, Roboto, sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  --radius: 8px;
+  --radius: 14px;
   --gap: 16px;
 
-  --bg: #f6f6f4;
-  --surface: #fcfcfb;
-  --border: #e2e2de;
-  --ink: #1d1d1b;
-  --ink-2: #55554f;
-  --ink-3: #8a8a82;
-  --accent: #2f6fd6;
+  --bg: #dff1fb;                        /* shows while the wallpaper loads */
+  --wallpaper: url("/background.jpg");
+  --wallpaper-tint: rgba(255, 255, 255, 0.10);
+  --surface: rgba(255, 255, 255, 0.58); /* frosted glass */
+  --surface-strong: rgba(255, 255, 255, 0.85);
+  --inset: rgba(255, 255, 255, 0.55);
+  --border: rgba(255, 255, 255, 0.85);
+  --edge: rgba(70, 140, 190, 0.35);     /* faint blue rim outside the white highlight */
+  --shine: rgba(255, 255, 255, 0.75);   /* top-half gloss */
+  --shadow: 0 6px 24px rgba(30, 90, 140, 0.18), 0 1px 3px rgba(30, 90, 140, 0.15);
+  --blur: blur(14px) saturate(150%);
+  --ink: #0d2a40;
+  --ink-2: #2b4c63;
+  --ink-3: #557489;
+  --accent: #0a74c2;
+
+  /* Glossy aqua buttons */
+  --btn-top: #f4fbff;
+  --btn-mid-hi: #cdeafa;
+  --btn-mid-lo: #9fd5f3;
+  --btn-bottom: #c9ecff;
+  --btn-border: #5ba9d6;
+  --btn-go-top: #f2ffe9;                /* green "Check all" */
+  --btn-go-mid-hi: #c6f0a6;
+  --btn-go-mid-lo: #8fd65c;
+  --btn-go-bottom: #c4f0a0;
+  --btn-go-border: #5fa83a;
 
   /* Status (reserved for state; always paired with icon + label) */
-  --good: #0ca30c;
-  --warning: #fab219;
-  --critical: #d03b3b;
-  --spark-up: #b9b9b1;
+  --good: #22a822;
+  --good-glow: rgba(34, 168, 34, 0.35);
+  --warning: #f0a30a;
+  --critical: #d63b3b;
+  --critical-glow: rgba(214, 59, 59, 0.35);
+  --spark-up: #6fbbe6;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #121211;
-    --surface: #1a1a19;
-    --border: #2e2e2c;
-    --ink: #ececea;
-    --ink-2: #b0b0aa;
-    --ink-3: #7c7c76;
-    --accent: #6b9cf0;
-    --spark-up: #55554f;
+    --bg: #0b1824;
+    --wallpaper-tint: rgba(4, 14, 26, 0.62);
+    --surface: rgba(16, 36, 54, 0.62);  /* smoky glass */
+    --surface-strong: rgba(16, 36, 54, 0.9);
+    --inset: rgba(0, 10, 20, 0.35);
+    --border: rgba(160, 210, 240, 0.28);
+    --edge: rgba(0, 0, 0, 0.4);
+    --shine: rgba(255, 255, 255, 0.10);
+    --shadow: 0 6px 24px rgba(0, 0, 0, 0.45), 0 1px 3px rgba(0, 0, 0, 0.4);
+    --ink: #eaf5fc;
+    --ink-2: #b7d2e4;
+    --ink-3: #85a6bc;
+    --accent: #7cc8f5;
+    --spark-up: #3f86b3;
   }
 }
 :root[data-theme="dark"] {
-  --bg: #121211;
-  --surface: #1a1a19;
-  --border: #2e2e2c;
-  --ink: #ececea;
-  --ink-2: #b0b0aa;
-  --ink-3: #7c7c76;
-  --accent: #6b9cf0;
-  --spark-up: #55554f;
+  --bg: #0b1824;
+  --wallpaper-tint: rgba(4, 14, 26, 0.62);
+  --surface: rgba(16, 36, 54, 0.62);
+  --surface-strong: rgba(16, 36, 54, 0.9);
+  --inset: rgba(0, 10, 20, 0.35);
+  --border: rgba(160, 210, 240, 0.28);
+  --edge: rgba(0, 0, 0, 0.4);
+  --shine: rgba(255, 255, 255, 0.10);
+  --shadow: 0 6px 24px rgba(0, 0, 0, 0.45), 0 1px 3px rgba(0, 0, 0, 0.4);
+  --ink: #eaf5fc;
+  --ink-2: #b7d2e4;
+  --ink-3: #85a6bc;
+  --accent: #7cc8f5;
+  --spark-up: #3f86b3;
 }

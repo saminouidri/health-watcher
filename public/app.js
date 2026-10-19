@@ -44,7 +44,7 @@ function card(e) {
     : e.lastError
       ? `<div class="error">${esc(e.lastError.error)} <span class="when">· ${ago(e.lastError.at)}</span></div>`
       : '';
-  return `<section class="card" data-id="${esc(e.id)}">
+  return `<section class="card ${status}" data-id="${esc(e.id)}">
     <div class="top">
       <span class="name" title="${esc(e.name)}">${esc(e.name)}</span>
       ${badge(status)}
